@@ -1,11 +1,15 @@
-# Getting Started with Create React App
+### App Description
 
-A JavaScript web-app to visualize how primitive and derived data types can be created and managed with code;
+A JavaScript web-app to visualize how primitive and derived data types operations work.
 
-## Supported Datat types
+### Supported Data types
 
-- Array
+The supported data types at the moment:
+
 - Tree
 - Stack
-- Queue
-- List
+
+### Stack Used
+
+- JavaScript React
+- Tailwind CSS
