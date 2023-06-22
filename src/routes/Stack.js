@@ -40,7 +40,6 @@ const Stack = () => {
 
     // Clear existing messages before
     // calling new function
-
     setDisplayBox({ title: "", message: "" });
 
     // Create stack
@@ -50,8 +49,8 @@ const Stack = () => {
           ...prev,
           state: "stack-create",
           title: "Add to stack",
-          description: "Enter value to insert.",
-          buttonText: "Create",
+          description: "Enter value of the item to ad to the tree.",
+          buttonText: "Add element",
           submitFunction: insertToStack,
         };
 
@@ -197,7 +196,7 @@ const Stack = () => {
             </div>
 
             {/* Modal description */}
-            <div className="text-gray-600 font-semibold italic text-lg px-5 md:px-10 pb-5">
+            <div className="text-gray-600 px-5 md:px-10 pb-5">
               {activeModal?.description}
             </div>
 
@@ -208,21 +207,34 @@ const Stack = () => {
             >
               <input
                 type="text"
-                className="w-full h-12 px-3 font-semibold text-gray-600 border rounded-md mb-5"
+                className="w-full h-12 px-3 text-gray-600 border rounded-md mb-5"
+                placeholder="Enter value"
               />
 
               <div className="flex items-center justify-between mb-10">
                 <button
-                  className="w-[48%] h-12 bg-gray-200 hover:bg-gray-300 text-black rounded-md font-semibold"
+                  className="w-[48%] h-12 bg-gray-200 hover:bg-gray-300 text-black font-semibold rounded-md"
                   onClick={cancelModal}
                 >
                   Cancel
                 </button>
                 <button
-                  className="w-[48%] h-12 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md shadow-md shadow-red-100"
+                  className="w-[48%] h-12 flex items-center justify-center bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md shadow-md shadow-red-100"
                   type="submit"
                 >
-                  {activeModal.buttonText}
+                  <span className="mr-2">{activeModal.buttonText}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-5 h-5 mt-[2px]"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
                 </button>
               </div>
             </form>
