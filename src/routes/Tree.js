@@ -346,9 +346,9 @@ const Tree = () => {
         )}
 
         {/* Controls */}
-        <div className="h-10 w-[50%] md:w-[30%] lg:w-[20%] flex justify-center">
+        <div className="h-12 w-[80%] md:w-[30%] lg:w-[20%] flex justify-center">
           <select
-            className="h-full w-full border-2 rounded px-2 outline-none font-semibold text-gray-600"
+            className="h-full w-full border-2 rounded px-2 outline-none font-semibold text-gray-600 bg-white"
             onChange={callTreeOps}
             ref={optionsRef}
           >
@@ -371,19 +371,22 @@ const Tree = () => {
       {activeModal?.state !== null && (
         <div className="absolute top-0 left-0 h-full w-full z-30 flex items-center justify-center">
           {/* Modal content */}
-          <div className="z-20 w-[75%] md:w-[50%] lg:w-[30%] h-fit bg-white shadow-xl rounded-md flex flex-col">
+          <div className="z-20 w-[85%] md:w-[50%] lg:w-[30%] h-fit bg-white shadow-xl rounded-md flex flex-col">
             {/* Modal Title */}
-            <div className="w-full border-b text-2xl font-semibold px-10 py-5 mb-5">
+            <div className="w-full border-b text-2xl font-semibold px-5 md:px-10 py-5 mb-5">
               {activeModal?.title}
             </div>
 
             {/* Modal description */}
-            <div className="text-gray-600 font-semibold italic text-lg px-10 pb-5">
+            <div className="text-gray-600 font-semibold italic text-lg px-5 md:px-10 pb-5">
               {activeModal?.description}
             </div>
 
             {/* Form  */}
-            <form className="px-10 mb-2" onSubmit={activeModal?.submitFunction}>
+            <form
+              className="px-5 md:px-10"
+              onSubmit={activeModal?.submitFunction}
+            >
               <input
                 type="text"
                 className="w-full h-10 px-3 font-semibold text-gray-600 border rounded-md mb-5"

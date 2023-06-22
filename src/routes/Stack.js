@@ -162,7 +162,7 @@ const Stack = () => {
         {/* Controls */}
         <div className="h-10 w-[50%] md:w-[30%] lg:w-[20%] flex justify-center">
           <select
-            className="h-full w-full border-2 rounded px-2 outline-none font-semibold text-gray-600"
+            className="h-full w-full border-2 rounded px-2 outline-none font-semibold text-gray-600 bg-white"
             onChange={callStackOps}
             ref={optionsRef}
           >
