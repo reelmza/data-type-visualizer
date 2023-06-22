@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/logo-transparent.png";
 const Header = () => {
   return (
     <div className="relative w-[80%] md:w-[50%] lg:w-[20%] flex items-center justify-center mb-10">
