@@ -136,12 +136,12 @@ const Stack = () => {
         {/* Stack UI */}
         <div className="w-[50%] md:w-[30%] lg:w-[20%] flex flex-col items-center">
           {/* Stack Elements */}
-          <div className="flex flex-col-reverse border-x-2 border-b-2 border-gray-800 shadow-lg rounded-b-md w-44 h-80 p-5">
+          <div className="flex flex-col-reverse border-x-2 border-b-2 border-gray-800 shadow-lg rounded-b-md w-44 h-[21.8rem] px-5 pb-5">
             {uiStack.items.map((item) => {
               const index = uiStack.items.indexOf(item);
               return (
                 <div
-                  className={`h-10 w-full flex items-center justify-center bg-red-600 rounded-md text-white font-semibold ${
+                  className={`h-12 w-full flex items-center justify-center bg-red-600 rounded-md text-white font-semibold ${
                     index !== 0 ? "mb-5" : ""
                   }`}
                   key={index}
@@ -154,13 +154,13 @@ const Stack = () => {
         </div>
 
         {/* Display Box */}
-        <div className="my-2 text-gray-600 flex items-center">
+        <div className="h-12 w-[80%] md:w-[30%] lg:w-[20%] my-1 text-gray-600 flex items-center justify-center">
           <div className="font-semibold mr-2">{displayBox.title}</div>
-          <div className="">{displayBox.message}</div>
+          <div>{displayBox.message}</div>
         </div>
 
         {/* Controls */}
-        <div className="h-10 w-[50%] md:w-[30%] lg:w-[20%] flex justify-center">
+        <div className="h-12 w-[80%] md:w-[30%] lg:w-[20%] flex justify-center">
           <select
             className="h-full w-full border-2 rounded px-2 outline-none font-semibold text-gray-600 bg-white"
             onChange={callStackOps}
@@ -190,33 +190,36 @@ const Stack = () => {
       {activeModal?.state !== null && (
         <div className="absolute top-0 left-0 h-full w-full z-30 flex items-center justify-center">
           {/* Modal content */}
-          <div className="z-20 w-[75%] md:w-[50%] lg:w-[30%] h-fit bg-white shadow-xl rounded-md flex flex-col">
+          <div className="z-20 w-[85%] md:w-[50%] lg:w-[30%] h-fit bg-white shadow-xl rounded-md flex flex-col">
             {/* Modal Title */}
-            <div className="w-full border-b text-2xl font-semibold px-10 py-5 mb-5">
+            <div className="w-full border-b text-2xl font-semibold px-5 md:px-10 py-5 mb-5">
               {activeModal?.title}
             </div>
 
             {/* Modal description */}
-            <div className="text-gray-600 font-semibold italic text-lg px-10 pb-5">
+            <div className="text-gray-600 font-semibold italic text-lg px-5 md:px-10 pb-5">
               {activeModal?.description}
             </div>
 
             {/* Form  */}
-            <form className="px-10 mb-2" onSubmit={activeModal?.submitFunction}>
+            <form
+              className="px-5 md:px-10"
+              onSubmit={activeModal?.submitFunction}
+            >
               <input
                 type="text"
-                className="w-full h-10 px-3 font-semibold text-gray-600 border rounded-md mb-5"
+                className="w-full h-12 px-3 font-semibold text-gray-600 border rounded-md mb-5"
               />
 
               <div className="flex items-center justify-between mb-10">
                 <button
-                  className="w-[48%] h-10 bg-gray-200 hover:bg-gray-300 text-black rounded-md"
+                  className="w-[48%] h-12 bg-gray-200 hover:bg-gray-300 text-black rounded-md font-semibold"
                   onClick={cancelModal}
                 >
                   Cancel
                 </button>
                 <button
-                  className="w-[48%] h-10 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md shadow-md shadow-red-100"
+                  className="w-[48%] h-12 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md shadow-md shadow-red-100"
                   type="submit"
                 >
                   {activeModal.buttonText}

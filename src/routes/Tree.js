@@ -136,7 +136,8 @@ const Tree = () => {
           ...prev,
           state: "tree-create",
           title: "Create tree",
-          description: "Enter the root node value.",
+          description:
+            "Enter the root node value. You can't use strings, symbols or special characters.",
           buttonText: "Create",
           submitFunction: createTree,
         };
@@ -214,10 +215,10 @@ const Tree = () => {
       {/* Tree */}
       <div className="w-full flex flex-col items-center justify-center">
         {/* Tree */}
-        <div className="w-[50%] md:w-[30%] lg:w-[20%] flex flex-col items-center">
+        <div className="w-[70%] md:w-[30%] lg:w-[20%] flex flex-col items-center">
           {/* Root Node */}
           <div className="relative row-1 mb-8 z-20">
-            <div className="flex justify-center items-center text-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold bg-white">
+            <div className="flex justify-center items-center text-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold bg-white">
               {uiBST?.root?.value || "?"}
             </div>
           </div>
@@ -228,7 +229,7 @@ const Tree = () => {
               <div className="relative flex justify-center w-[50%]">
                 {uiBST?.root?.left?.value && (
                   <>
-                    <div className="flex items-center justify-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold z-20 bg-white">
+                    <div className="flex items-center justify-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold z-20 bg-white">
                       {uiBST?.root?.left?.value}
                     </div>
 
@@ -242,7 +243,7 @@ const Tree = () => {
               <div className="relative flex justify-center w-[50%]">
                 {uiBST?.root?.right?.value && (
                   <>
-                    <div className="flex items-center justify-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold z-20 bg-white">
+                    <div className="flex items-center justify-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold z-20 bg-white">
                       {uiBST?.root?.right?.value}
                     </div>
 
@@ -264,7 +265,7 @@ const Tree = () => {
               <div className="relative w-[25%] flex justify-center">
                 {uiBST?.root?.left?.left?.value && (
                   <>
-                    <div className="flex items-center justify-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold z-20 bg-white">
+                    <div className="flex items-center justify-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold z-20 bg-white">
                       {uiBST?.root?.left?.left?.value}
                     </div>
 
@@ -278,7 +279,7 @@ const Tree = () => {
               <div className="relative w-[25%] flex justify-center">
                 {uiBST?.root?.left?.right?.value && (
                   <>
-                    <div className="flex items-center justify-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold z-20 bg-white">
+                    <div className="flex items-center justify-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold z-20 bg-white">
                       {uiBST?.root?.left?.right?.value}
                     </div>
 
@@ -292,7 +293,7 @@ const Tree = () => {
               <div className="relative w-[25%] flex justify-center">
                 {uiBST?.root?.right?.left?.value && (
                   <>
-                    <div className="flex items-center justify-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold z-20 bg-white">
+                    <div className="flex items-center justify-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold z-20 bg-white">
                       {uiBST?.root?.right?.left?.value}
                     </div>
 
@@ -306,7 +307,7 @@ const Tree = () => {
               <div className="relative w-[25%] flex justify-center">
                 {uiBST?.root?.right?.right?.value && (
                   <>
-                    <div className="flex items-center justify-center rounded-full h-10 w-10 border-2 border-gray-600 font-semibold z-20 bg-white">
+                    <div className="flex items-center justify-center rounded-full h-12 w-12 border-2 border-gray-600 font-semibold z-20 bg-white">
                       {uiBST?.root?.right?.right?.value}
                     </div>
 
@@ -322,7 +323,7 @@ const Tree = () => {
 
         {/* Display Box */}
         {displayBox.title && (
-          <div className="w-[50%] md:w-[30%] lg:w-[20%]">
+          <div className="w-[80%] md:w-[30%] lg:w-[20%]">
             <div className="text-gray-600 mb-3 font-semibold">
               {displayBox?.title}
             </div>
@@ -378,7 +379,7 @@ const Tree = () => {
             </div>
 
             {/* Modal description */}
-            <div className="text-gray-600 font-semibold italic text-lg px-5 md:px-10 pb-5">
+            <div className="text-gray-600 px-5 md:px-10 pb-5">
               {activeModal?.description}
             </div>
 
@@ -389,18 +390,18 @@ const Tree = () => {
             >
               <input
                 type="text"
-                className="w-full h-10 px-3 font-semibold text-gray-600 border rounded-md mb-5"
+                className="w-full h-12 px-3 font-semibold text-gray-600 border rounded-md mb-5"
               />
 
               <div className="flex items-center justify-between mb-10">
                 <button
-                  className="w-[48%] h-10 bg-gray-200 hover:bg-gray-300 text-black rounded-md"
+                  className="w-[48%] h-12 bg-gray-200 hover:bg-gray-300 text-black font-semibold rounded-md"
                   onClick={cancelModal}
                 >
                   Cancel
                 </button>
                 <button
-                  className="w-[48%] h-10 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md shadow-md shadow-red-100"
+                  className="w-[48%] h-12 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-md shadow-md shadow-red-100"
                   type="submit"
                 >
                   {activeModal.buttonText}
