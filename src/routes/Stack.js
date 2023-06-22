@@ -50,7 +50,7 @@ const Stack = () => {
           state: "stack-create",
           title: "Add to stack",
           description: "Enter value of the item to ad to the tree.",
-          buttonText: "Add element",
+          buttonText: "Add",
           submitFunction: insertToStack,
         };
 
