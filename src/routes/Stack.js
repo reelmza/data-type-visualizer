@@ -10,6 +10,7 @@ const Stack = () => {
     submitFunction: null,
   });
   const [uiStack, setUiStack] = useState({ items: [], count: 0 });
+  const [displayBox, setDisplayBox] = useState({ title: "", message: "" });
   const optionsRef = useRef();
 
   let mutableStack = new STACK();
@@ -36,6 +37,11 @@ const Stack = () => {
   // Call correct tree function
   const callStackOps = (e) => {
     const opsToPerform = e?.target?.value;
+
+    // Clear existing messages before
+    // calling new function
+
+    setDisplayBox({ title: "", message: "" });
 
     // Create stack
     if (opsToPerform === "create" || opsToPerform === "insert") {
@@ -65,6 +71,52 @@ const Stack = () => {
       setUiStack(mutableStack);
       return;
     }
+
+    if (opsToPerform === "clear") {
+      mutableStack.items = uiStack.items;
+      mutableStack.count = uiStack.count;
+
+      mutableStack.clear();
+
+      setUiStack(mutableStack);
+      return;
+    }
+
+    if (opsToPerform === "clear") {
+      mutableStack.items = uiStack.items;
+      mutableStack.count = uiStack.count;
+
+      mutableStack.clear();
+
+      setUiStack(mutableStack);
+      return;
+    }
+
+    if (opsToPerform === "size") {
+      mutableStack.items = uiStack.items;
+      mutableStack.count = uiStack.count;
+
+      optionsRef.current.selectedIndex = 0;
+
+      setDisplayBox({
+        title: "The size of the stack is:",
+        message: mutableStack.size(),
+      });
+      return;
+    }
+
+    if (opsToPerform === "peek") {
+      mutableStack.items = uiStack.items;
+      mutableStack.count = uiStack.count;
+
+      optionsRef.current.selectedIndex = 0;
+
+      setDisplayBox({
+        title: "The last items in the stack is:",
+        message: mutableStack.peek(),
+      });
+      return;
+    }
   };
 
   // Cancel modal
@@ -82,7 +134,7 @@ const Stack = () => {
     <>
       <div className="w-full flex flex-col items-center justify-center">
         {/* Stack UI */}
-        <div className="w-[50%] md:w-[30%] lg:w-[20%] flex flex-col items-center mb-10">
+        <div className="w-[50%] md:w-[30%] lg:w-[20%] flex flex-col items-center">
           {/* Stack Elements */}
           <div className="flex flex-col-reverse border-x-2 border-b-2 border-gray-800 shadow-lg rounded-b-md w-44 h-80 p-5">
             {uiStack.items.map((item) => {
@@ -101,6 +153,12 @@ const Stack = () => {
           </div>
         </div>
 
+        {/* Display Box */}
+        <div className="my-2 text-gray-600 flex items-center">
+          <div className="font-semibold mr-2">{displayBox.title}</div>
+          <div className="">{displayBox.message}</div>
+        </div>
+
         {/* Controls */}
         <div className="h-10 w-[50%] md:w-[30%] lg:w-[20%] flex justify-center">
           <select
@@ -115,12 +173,13 @@ const Stack = () => {
             )}
             {uiStack.items.length > 0 && (
               <>
-                {uiStack.items.length < 5 && (
-                  <option value="insert">Insert</option>
-                )}
                 {uiStack.items.length > 0 && (
                   <option value="delete">Delete</option>
                 )}
+                <option value="insert">Insert</option>
+                <option value="peek">Peek</option>
+                <option value="clear">Clear</option>
+                <option value="size">Size</option>
               </>
             )}
           </select>
