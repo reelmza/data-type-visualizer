@@ -35,6 +35,8 @@ const Tree = () => {
       const newModal = { ...prev, state: null };
       return newModal;
     });
+
+    console.log(`Added root node: ${input}`);
   };
 
   // Insert to tree
@@ -58,6 +60,8 @@ const Tree = () => {
       const newModal = { ...prev, state: null };
       return newModal;
     });
+
+    console.log(`Added ${input} to tree.`);
   };
 
   // Delete from tree
@@ -80,6 +84,8 @@ const Tree = () => {
       const newModal = { ...prev, state: null };
       return newModal;
     });
+
+    console.log(`Deleted ${input} from tree.`);
   };
 
   // Search in tree

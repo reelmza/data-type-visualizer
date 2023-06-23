@@ -11,8 +11,9 @@ const Home = () => {
           onChange={(e) => navigate(`${e.target.value}`)}
         >
           <option value="">Select Data Type</option>
-          <option value="tree">Tree</option>
+          <option value="array">Array</option>
           <option value="stack">Stack</option>
+          <option value="tree">Tree</option>
         </select>
       </div>
     </div>
