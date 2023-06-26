@@ -7,6 +7,11 @@ const SharedLayout = () => {
       <main className={`w-full flex flex-col pb-5`}>
         <Outlet />
       </main>
+
+      <div className="flex flex-col items-center text-gray-600">
+        <div className="text-lg font-bold">CMP212 - Group 1</div>
+        <div>PRESENTATION BUILD</div>
+      </div>
     </div>
   );
 };
