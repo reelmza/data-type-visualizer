@@ -19,6 +19,9 @@ const Array = () => {
     mutableArray[0] = input;
     optionsRef.current.selectedIndex = 0;
 
+    console.log(`Initialized array with value ${input}`);
+    console.log(mutableArray);
+
     setUiArray(mutableArray);
     setActiveModal((prev) => {
       const newModal = { ...prev, state: null };
@@ -31,12 +34,14 @@ const Array = () => {
     e.preventDefault();
     const input = Number(e.target[0].value);
     const mutableArray = [...uiArray];
-    const nextFreeIndex = mutableArray.length;
 
+    const nextFreeIndex = mutableArray.length;
     mutableArray[nextFreeIndex] = input;
+
     optionsRef.current.selectedIndex = 0;
 
     console.log(`Added ${input} to index ${nextFreeIndex}`);
+    console.log(mutableArray);
 
     setUiArray(mutableArray);
     setActiveModal((prev) => {
@@ -51,6 +56,10 @@ const Array = () => {
     const input = Number(e.target[0].value);
 
     optionsRef.current.selectedIndex = 0;
+
+    // Key line
+    console.log(uiArray[input]);
+
     console.log(`Index ${input} contains ${uiArray[input]}`);
 
     setDisplayBox({
@@ -67,13 +76,17 @@ const Array = () => {
 
   const update = (e) => {
     e.preventDefault();
-    const index = e.target[0].value.split(",")[0];
-    const value = e.target[0].value.split(",")[1];
+    const index = Number(e.target[0].value.split(",")[0]);
+    const value = Number(e.target[0].value.split(",")[1]);
 
     const mutableArray = [...uiArray];
     mutableArray[index] = value;
 
     optionsRef.current.selectedIndex = 0;
+
+    console.log(`Updated index [${index}] with ${value}`);
+    console.log(mutableArray);
+
     setUiArray(mutableArray);
     setActiveModal((prev) => {
       const newModal = { ...prev, state: null };
@@ -94,8 +107,10 @@ const Array = () => {
 
     optionsRef.current.selectedIndex = 0;
 
-    setUiArray(newArray);
+    console.log(`Merged new item(s) to array`);
     console.log(newArray);
+
+    setUiArray(newArray);
     setActiveModal((prev) => {
       const newModal = { ...prev, state: null };
       return newModal;
@@ -103,7 +118,7 @@ const Array = () => {
   };
 
   const sort = () => {
-    var mutableArray = uiArray;
+    var mutableArray = [...uiArray];
 
     var output = [];
     var inserted;
@@ -120,6 +135,9 @@ const Array = () => {
 
       if (!inserted) output.push(mutableArray[i]);
     }
+
+    console.log(`Sorted array in ascending order.`);
+    console.log(output);
 
     optionsRef.current.selectedIndex = 0;
 
@@ -142,6 +160,7 @@ const Array = () => {
     }
 
     optionsRef.current.selectedIndex = 0;
+    console.log(`Deleted ${input} from array`);
     console.log(newArray);
 
     setUiArray(newArray);

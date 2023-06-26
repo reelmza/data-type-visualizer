@@ -26,6 +26,7 @@ const Stack = () => {
     }
 
     mutableStack.push(input);
+    console.log(mutableStack);
     optionsRef.current.selectedIndex = 0;
 
     setUiStack(mutableStack);
@@ -77,16 +78,7 @@ const Stack = () => {
       mutableStack.count = uiStack.count;
 
       mutableStack.clear();
-
-      setUiStack(mutableStack);
-      return;
-    }
-
-    if (opsToPerform === "clear") {
-      mutableStack.items = uiStack.items;
-      mutableStack.count = uiStack.count;
-
-      mutableStack.clear();
+      console.log(mutableStack);
 
       setUiStack(mutableStack);
       return;
@@ -102,6 +94,8 @@ const Stack = () => {
         title: "The size of the stack is:",
         message: mutableStack.size(),
       });
+
+      console.log(mutableStack);
       return;
     }
 
@@ -115,6 +109,8 @@ const Stack = () => {
         title: "The last items in the stack is:",
         message: mutableStack.peek(),
       });
+
+      console.log(mutableStack);
       return;
     }
   };

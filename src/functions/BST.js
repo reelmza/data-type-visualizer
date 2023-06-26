@@ -16,7 +16,7 @@ class BST {
 
     const searchTree = (node) => {
       if (value < node.value) {
-        if (!node.left) {
+        if (node.left === null) {
           node.left = newNode;
         } else {
           searchTree(node.left);

@@ -37,6 +37,7 @@ const Tree = () => {
     });
 
     console.log(`Added root node: ${input}`);
+    console.log(mutableBST);
   };
 
   // Insert to tree
@@ -62,6 +63,7 @@ const Tree = () => {
     });
 
     console.log(`Added ${input} to tree.`);
+    console.log(mutableBST);
   };
 
   // Delete from tree
@@ -86,6 +88,7 @@ const Tree = () => {
     });
 
     console.log(`Deleted ${input} from tree.`);
+    console.log(mutableBST);
   };
 
   // Search in tree
@@ -193,7 +196,7 @@ const Tree = () => {
       optionsRef.current.selectedIndex = 0;
 
       setDisplayBox({
-        title: "The tree traversal is:",
+        title: "The tree's Inorder traversal is:",
         array: traversalArray,
         string: null,
       });
