@@ -1,6 +1,5 @@
 import STACK from "../functions/STACK";
 import { useState, useRef } from "react";
-import BST from "../functions/BST";
 
 const Stack = () => {
   const [activeModal, setActiveModal] = useState({
